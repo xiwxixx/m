@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="m.css">
+    <title>i love u</title>
+</head>
+<body>
+  div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div><div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+<div class="snowflake">❄</div>
+
+    <div class="snow"></div>
+
+    <div class="envelope">
+  
+
+  <img src="images1/click.png" class="click">
+    <img src="images1/Heart.png" class="heart">
+   <img src="images1/rec.png" class="body">
+   <img src="images1/Union.png" class="tri">
+    <img src="images2/letter.png" class="message">
+</div>
+
+<script>
+  
+const snowflakes = document.querySelectorAll('.snowflake');
+
+snowflakes.forEach(flake => {
+  flake.style.setProperty('--size', Math.random());  // حجم
+  flake.style.setProperty('--speed', Math.random()); // سرعة
+  flake.style.setProperty('--left', Math.random());  // موقع أفقي
+});
+
+
+const envelopes = document.querySelectorAll('.envelope');
+
+envelopes.forEach(envelope => {
+  const click = envelope.querySelector('.click');
+  const flap = envelope.querySelector('.tri');
+  const heart = envelope.querySelector('.heart');
+  const message = envelope.querySelector('.message');
+
+  click.addEventListener('click', () => {
+    // فتح الغطا + النزول شوية
+    flap.style.transform = 'rotateX(180deg)';
+    flap.style.top = '220px';  // هذا هو اللي بيخلي المثلث ينزل تحت
+
+    // اخفاء القلب تدريجي
+    heart.style.opacity = '0';
+
+    // اخفاء الصورة/الكلمة اللي دوستي عليها
+    click.style.display = 'none';
+    
+    // اظهار الصورة الجديدة مع Fade-in
+    message.style.display = 'block';
+    setTimeout(() => {
+      message.style.opacity = '1';
+    }, 50);
+  });
+});
+</script>
+
+
+
+</body>
+</html>

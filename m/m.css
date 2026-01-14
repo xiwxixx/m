@@ -1,0 +1,109 @@
+
+
+.envelope {
+  position: relative;
+  width: 300px;   /* عرض الظرف */
+  height: 200px;  /* ارتفاع الظرف */
+  margin: 50px auto;
+}
+
+/* جسم الظرف */
+.body {
+    
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 300px;
+  height: auto;
+  z-index: 1;
+}
+
+/* الغطا (المثلث) */
+.tri {
+  position: absolute;
+  top: 200px; /* عدلي الرقم حسب تصميمك */
+  left: 0;
+  width: 300px;
+  z-index: 2;
+  transform-origin: top;
+  transition: transform 0.6s ease;
+}
+
+/* القلب */
+.heart {
+  position: absolute;
+  top: 315px;    /* عدلي الرقم حسب التصميم */
+  left: 110px;  /* عدلي الرقم حسب التصميم */
+  z-index: 3;
+  transition: transform 0.6s ease;
+}
+
+
+.click {
+  position: absolute;
+  top: 250px;
+  left: 105px;
+  
+  z-index: 4;
+  cursor: pointer;
+}
+
+/* اجعل الصورة message مخفية في البداية */
+.message {
+  position: absolute;
+  top: 250px;   /* عدلي حسب مكان القلب */
+  left: 50px;
+  z-index: 5;
+  display: none;
+  /* أو حسب حجم الصورة */
+  transform: rotateY(0deg);
+  transition: transform 0.6s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* الثلج */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+/* الثلوج */
+.snowflake {
+  position: absolute;
+  color: white;
+  top: -10px;  /* تبدأ فوق الشاشة */
+  z-index: 0;
+  pointer-events: none;
+
+  /* حجم عشوائي */
+  font-size: calc(5px + 10 * var(--size)); 
+  opacity: calc(0.3 + 0.7 * var(--size));
+  
+  animation: fall linear infinite;
+  animation-duration: calc(10s + 20 * var(--speed)); /* سرعة مختلفة */
+  left: calc(var(--left) * 100vw); /* موقع أفقي عشوائي */
+}
+
+/* حركة الثلج */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.7;
+  }
+}
+
